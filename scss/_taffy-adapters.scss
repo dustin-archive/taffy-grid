@@ -1,0 +1,31 @@
+@mixin adapter($type, $list) {
+  $length: length($list);
+
+  @for $i from 1 through $length {
+    $item: nth($list, $i);
+
+    @if type-of($item) == number {
+      @extend %#{dasher($type $item)};
+    }
+    @else if type-of($item) == string {
+      $dash-position: str-index($item, '-');
+      $column: str-slice($item, 1, $dash-position - 1);
+      $media: str-slice($item, $dash-position + 1);
+
+      @extend %#{dasher($type $column media $media)};
+    }
+  }
+}
+
+// Adapters
+@mixin column($list) {
+  @include adapter(column, $list);
+}
+
+@mixin grid($list) {
+  @include adapter(grid, $list);
+}
+
+@mixin offset($list) {
+  @include adapter(offset, $list);
+}

@@ -1,0 +1,28 @@
+body {
+  min-width: px($taffy-page-min);
+}
+
+.wrapper {
+  display: flex;
+  padding: em($taffy-gutter-width);
+  justify-content: center;
+}
+
+.center {
+  // width: 100%; // i'm not sure if i could use flex or auto for centering
+  // margin: auto;
+  max-width: em($taffy-page-max);
+  flex: 1;
+}
+
+[class^='grid'] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: if($taffy-product-grid == true, flex-start, space-between); // idk if i want to use if() function here
+}
+
+// %product-grid {
+//   [class^='grid'] {
+//     justify-content: flex-start;
+//   }
+// }

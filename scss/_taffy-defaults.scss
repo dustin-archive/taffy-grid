@@ -1,0 +1,12 @@
+@include generate-breakpoints;
+@include generate-grids;
+@include generate-columns;
+
+@for $i from 1 through $taffy-amount {
+  @include breakpoint($i) {
+    $media: '-media-' + $i;
+
+    @include generate-grids($media: $media);
+    @include generate-columns($media: $media);
+  }
+}

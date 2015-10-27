@@ -1,0 +1,64 @@
+@mixin generate-columns(
+  $name          : null,
+  $gutter-width  : $taffy-gutter-width,
+  $gutter-height : $taffy-gutter-height,
+  $amount        : $taffy-amount,
+  $media         : null
+  ) {
+
+  // Columns
+  @for $i from 1 through ($amount - 1) {
+
+    // Column width
+    $divisor: $amount / $i;
+    $gutter-width-total: $gutter-width * ($divisor - 1);
+
+    $column-width: null;
+    $offset-margin: null;
+
+    @if $gutter-width > 0 {
+      $column-width: calc((100% - #{em($gutter-width-total)}) / #{$divisor});
+      $offset-margin: calc(((100% - #{em($gutter-width-total)}) / #{$divisor}) + #{em($gutter-width)});
+    }
+    @else {
+      $column-width: calc(100% / #{$divisor});
+      $offset-margin: calc((100% / #{$divisor}) + #{em($gutter-width)});
+    }
+
+    // Columns and offsets
+    %#{dasher(column $name $i $media)} {
+      max-width: if($taffy-product-grid == true, $column-width, null);
+      flex: 1 1 $column-width;
+    }
+
+    %#{dasher(offset $name left $i $media)} {
+      margin-left: $offset-margin;
+    }
+
+    %#{dasher(offset $name right $i $media)} {
+      margin-right: $offset-margin;
+    }
+  }
+
+  // Largest column and offset
+  %#{dasher(column $name $amount $media)} {
+    flex: 1 1 100%;
+  }
+  %#{dasher(offset $name left $amount $media)} {
+    margin-left: 100%;
+  }
+  %#{dasher(offset $name right $amount $media)} {
+    margin-right: 100%;
+  }
+
+  // Zero column and offset
+  %#{dasher(column $name 0 $media)} {
+    flex: 1 1 0;
+  }
+  %#{dasher(offset $name left 0 $media)} {
+    margin-left: 0;
+  }
+  %#{dasher(offset $name right 0 $media)} {
+    margin-right: 0;
+  }
+}
