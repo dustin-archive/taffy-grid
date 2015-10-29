@@ -8,10 +8,9 @@ $breakpoints: (); // set scope globally
   // Breakpoints
   @for $i from 1 through $column-amount {
     $media-gap: $taffy-page-max / $column-amount;
-    $media-width: em($media-gap * $i);
 
     $breakpoint: (
-      dash($column-name $i): $media-width
+      dash($column-name $i): em($media-gap * $i)
     );
 
     $breakpoints: map-merge($breakpoints, $breakpoint) !global; // update global scope
