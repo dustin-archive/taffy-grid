@@ -13,17 +13,8 @@
     $divisor: $amount / $i;
     $gutter-width-total: $gutter-width * ($divisor - 1);
 
-    $column-width: null;
-    $offset-margin: null;
-
-    @if $gutter-width > 0 {
-      $column-width: calc((100% - #{em($gutter-width-total)}) / #{$divisor});
-      $offset-margin: calc(((100% - #{em($gutter-width-total)}) / #{$divisor}) + #{em($gutter-width)});
-    }
-    @else {
-      $column-width: calc(100% / #{$divisor});
-      $offset-margin: calc((100% / #{$divisor}) + #{em($gutter-width)});
-    }
+    $column-width: calc((100% - #{em($gutter-width-total)}) / #{$divisor});
+    $offset-margin: calc(((100% - #{em($gutter-width-total)}) / #{$divisor}) + #{em($gutter-width)});
 
     // Columns and offsets
     %#{cola-dash(column $name $i $media)} {
