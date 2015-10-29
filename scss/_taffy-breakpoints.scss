@@ -7,13 +7,11 @@ $breakpoints: ();
 
   // Breakpoints
   @for $i from 1 through $column-amount {
-    $breakpoint-name: if(is-null($column-name), $i, $column-name + '-' + $i);
-
     $media-gap: $taffy-page-max / $column-amount;
     $media-width: em($media-gap * $i);
 
     $breakpoint: (
-      $breakpoint-name: $media-width
+      dash($column-name $i): $media-width
     );
 
     $breakpoints: map-merge($breakpoints, $breakpoint) !global;
