@@ -7,14 +7,14 @@
 
   // Grid placeholders
   @if $media {
-    %grid-all#{$media} {
+    %#{cola-dash(grid all $media)} {
       margin-top: em($gutter-height);
       margin-right: em($gutter-width);
     }
-    %grid-first-row#{$media} {
+    %#{cola-dash(grid first row $media)} {
       margin-top: 0;
     }
-    %grid-last-column#{$media} {
+    %#{cola-dash(grid last column $media)} {
       margin-right: 0;
     }
   }
@@ -33,13 +33,13 @@
 
   // Grids
   @for $i from 1 through $amount {
-    %grid-#{$i}#{$media} {
+    %#{cola-dash(grid $i $media)} {
       > [class^='column'] {
 
         // Nth-child
         &:nth-child(n) {
           @if $media {
-            @extend %grid-all#{$media};
+            @extend %#{cola-dash(grid all $media)};
           }
           @else {
             @extend %grid-all;
@@ -49,7 +49,7 @@
         // First row
         &:nth-child(-n + #{$i}) {
           @if $media {
-            @extend %grid-first-row#{$media};
+            @extend %#{cola-dash(grid first row $media)};
           }
           @else {
             @extend %grid-first-row;
@@ -60,7 +60,7 @@
         &:nth-child(#{$i}n),
         &:last-child {
           @if $media {
-            @extend %grid-last-column#{$media};
+            @extend %#{cola-dash(grid last column $media)};
           }
           @else {
             @extend %grid-last-column;
