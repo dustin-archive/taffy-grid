@@ -8,6 +8,7 @@
       @extend %#{dash($type $item)};
     }
     @else if type-of($item) == string {
+      // use cola-split function instead when stable
       $dash-position: str-index($item, '-');
       $column: str-slice($item, 1, $dash-position - 1);
       $media: str-slice($item, $dash-position + 1);
