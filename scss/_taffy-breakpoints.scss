@@ -1,14 +1,11 @@
 $breakpoints: (); // set scope globally
 
-@mixin generate-breakpoints(
-  $column-name   : null,
-  $column-amount : $taffy-amount
-  ) {
+@mixin generate-breakpoints($name: null, $amount: $taffy-amount) {
 
   // Breakpoints
-  @for $i from 1 through $column-amount {
-    $media-gap: $taffy-page-max / $column-amount;
-    $breakpoint: (dash($column-name $i): em($media-gap * $i));
+  @for $i from 1 through $amount {
+    $media-gap: $taffy-page-max / $amount;
+    $breakpoint: (dash($name $i): em($media-gap * $i));
     $breakpoints: map-merge($breakpoints, $breakpoint) !global; // update global scope
   }
 }
