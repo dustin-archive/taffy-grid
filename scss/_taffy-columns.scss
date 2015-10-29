@@ -1,9 +1,9 @@
-@mixin generate-columns(
-  $name          : null,
-  $gutter-width  : $taffy-gutter-width,
-  $gutter-height : $taffy-gutter-height,
-  $amount        : $taffy-amount,
-  $media         : null
+@mixin taffy-columns(
+  $name: null,
+  $gutter-width: $taffy-gutter-width,
+  $gutter-height: $taffy-gutter-height,
+  $amount: $taffy-amount,
+  $media: null
   ) {
 
   // Columns

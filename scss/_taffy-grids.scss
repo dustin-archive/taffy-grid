@@ -1,8 +1,8 @@
-@mixin generate-grids(
-  $gutter-width  : $taffy-gutter-width,
-  $gutter-height : $taffy-gutter-height,
-  $amount        : $taffy-amount,
-  $media         : null
+@mixin taffy-grids(
+  $gutter-width: $taffy-gutter-width,
+  $gutter-height: $taffy-gutter-height,
+  $amount: $taffy-amount,
+  $media: null
   ) {
 
   // Grid placeholders

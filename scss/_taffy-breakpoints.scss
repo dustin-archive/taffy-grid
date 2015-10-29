@@ -1,6 +1,6 @@
 $breakpoints: (); // set scope globally
 
-@mixin generate-breakpoints($name: null, $amount: $taffy-amount) {
+@mixin taffy-breakpoints($name: null, $amount: $taffy-amount) {
 
   // Breakpoints
   @for $i from 1 through $amount {

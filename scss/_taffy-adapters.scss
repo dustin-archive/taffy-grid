@@ -1,4 +1,4 @@
-@mixin adapter($type, $list) {
+@mixin taffy-adapter($type, $list) {
   $length: length($list);
 
   @for $i from 1 through $length {
@@ -20,13 +20,13 @@
 
 // Adapters
 @mixin column($list) {
-  @include adapter(column, $list);
+  @include taffy-adapter(column, $list);
 }
 
 @mixin grid($list) {
-  @include adapter(grid, $list);
+  @include taffy-adapter(grid, $list);
 }
 
 @mixin offset($list) {
-  @include adapter(offset, $list);
+  @include taffy-adapter(offset, $list);
 }
