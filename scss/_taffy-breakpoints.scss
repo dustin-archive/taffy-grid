@@ -1,4 +1,4 @@
-$breakpoints: ();
+$breakpoints: (); // set scope globally
 
 @mixin generate-breakpoints(
   $column-name   : null,
@@ -14,7 +14,7 @@ $breakpoints: ();
       dash($column-name $i): $media-width
     );
 
-    $breakpoints: map-merge($breakpoints, $breakpoint) !global;
+    $breakpoints: map-merge($breakpoints, $breakpoint) !global; // update global scope
   }
 }
 
