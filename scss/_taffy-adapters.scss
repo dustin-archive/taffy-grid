@@ -5,14 +5,14 @@
     $item: nth($list, $i);
 
     @if type-of($item) == number {
-      @extend %#{dasher($type $item)};
+      @extend %#{dash($type $item)};
     }
     @else if type-of($item) == string {
       $dash-position: str-index($item, '-');
       $column: str-slice($item, 1, $dash-position - 1);
       $media: str-slice($item, $dash-position + 1);
 
-      @extend %#{dasher($type $column media $media)};
+      @extend %#{dash($type $column media $media)};
     }
   }
 }
