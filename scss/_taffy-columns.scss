@@ -26,39 +26,39 @@
     }
 
     // Columns and offsets
-    %#{dasher(column $name $i $media)} {
+    %#{cola-dash(column $name $i $media)} {
       max-width: if($taffy-product-grid == true, $column-width, null);
       flex: 1 1 $column-width;
     }
 
-    %#{dasher(offset $name left $i $media)} {
+    %#{cola-dash(offset $name left $i $media)} {
       margin-left: $offset-margin;
     }
 
-    %#{dasher(offset $name right $i $media)} {
+    %#{cola-dash(offset $name right $i $media)} {
       margin-right: $offset-margin;
     }
   }
 
   // Largest column and offset
-  %#{dasher(column $name $amount $media)} {
+  %#{cola-dash(column $name $amount $media)} {
     flex: 1 1 100%;
   }
-  %#{dasher(offset $name left $amount $media)} {
+  %#{cola-dash(offset $name left $amount $media)} {
     margin-left: 100%;
   }
-  %#{dasher(offset $name right $amount $media)} {
+  %#{cola-dash(offset $name right $amount $media)} {
     margin-right: 100%;
   }
 
   // Zero column and offset
-  %#{dasher(column $name 0 $media)} {
+  %#{cola-dash(column $name 0 $media)} {
     flex: 1 1 0;
   }
-  %#{dasher(offset $name left 0 $media)} {
+  %#{cola-dash(offset $name left 0 $media)} {
     margin-left: 0;
   }
-  %#{dasher(offset $name right 0 $media)} {
+  %#{cola-dash(offset $name right 0 $media)} {
     margin-right: 0;
   }
 }
