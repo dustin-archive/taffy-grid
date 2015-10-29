@@ -1,9 +1,5 @@
 @mixin taffy-adapter($type, $list) {
-  $length: length($list);
-
-  @for $i from 1 through $length {
-    $item: nth($list, $i);
-
+  @each $item in $list {
     @if type-of($item) == 'number' {
       @extend %#{dash($type $item)};
     }
