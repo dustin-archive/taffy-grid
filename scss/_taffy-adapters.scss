@@ -4,29 +4,29 @@
   @for $i from 1 through $length {
     $item: nth($list, $i);
 
-    @if type-of($item) == number {
+    @if type-of($item) == 'number' {
       @extend %#{dash($type $item)};
     }
-    @else if type-of($item) == string {
+    @else if type-of($item) == 'string' {
       // use cola-split function instead when stable
       $dash-position: str-index($item, '-');
       $column: str-slice($item, 1, $dash-position - 1);
       $media: str-slice($item, $dash-position + 1);
 
-      @extend %#{dash($type $column media $media)};
+      @extend %#{dash($type $column 'media' $media)};
     }
   }
 }
 
 // Adapters
 @mixin column($list) {
-  @include taffy-adapter(column, $list);
+  @include taffy-adapter('column', $list);
 }
 
 @mixin grid($list) {
-  @include taffy-adapter(grid, $list);
+  @include taffy-adapter('grid', $list);
 }
 
 @mixin offset($list) {
-  @include taffy-adapter(offset, $list);
+  @include taffy-adapter('offset', $list);
 }

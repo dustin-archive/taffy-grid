@@ -22,11 +22,11 @@
       flex: 1 1 $column-width;
     }
 
-    %#{dash(offset $name left $i $media)} {
+    %#{dash(offset $name 'left' $i $media)} {
       margin-left: $offset-margin;
     }
 
-    %#{dash(offset $name right $i $media)} {
+    %#{dash(offset $name 'right' $i $media)} {
       margin-right: $offset-margin;
     }
   }
@@ -35,10 +35,10 @@
   %#{dash(column $name $amount $media)} {
     flex: 1 1 100%;
   }
-  %#{dash(offset $name left $amount $media)} {
+  %#{dash(offset $name 'left' $amount $media)} {
     margin-left: 100%;
   }
-  %#{dash(offset $name right $amount $media)} {
+  %#{dash(offset $name 'right' $amount $media)} {
     margin-right: 100%;
   }
 
@@ -46,10 +46,10 @@
   %#{dash(column $name 0 $media)} {
     flex: 1 1 0;
   }
-  %#{dash(offset $name left 0 $media)} {
+  %#{dash(offset $name 'left' 0 $media)} {
     margin-left: 0;
   }
-  %#{dash(offset $name right 0 $media)} {
+  %#{dash(offset $name 'right' 0 $media)} {
     margin-right: 0;
   }
 }

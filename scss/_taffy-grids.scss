@@ -7,14 +7,14 @@
 
   // Grid placeholders
   @if $media {
-    %#{dash(grid all $media)} {
+    %#{dash('grid' 'all' $media)} {
       margin-top: em($gutter-height);
       margin-right: em($gutter-width);
     }
-    %#{dash(grid first row $media)} {
+    %#{dash('grid' 'first' 'row' $media)} {
       margin-top: 0;
     }
-    %#{dash(grid last column $media)} {
+    %#{dash('grid' 'last' 'column' $media)} {
       margin-right: 0;
     }
   }
@@ -33,13 +33,13 @@
 
   // Grids
   @for $i from 1 through $amount {
-    %#{dash(grid $i $media)} {
+    %#{dash('grid' $i $media)} {
       > [class^='column'] {
 
         // Nth-child // Is it needed to output nth-child when there's only 1 column?
         &:nth-child(n) {
           @if $media {
-            @extend %#{dash(grid all $media)};
+            @extend %#{dash('grid' 'all' $media)};
           }
           @else {
             @extend %grid-all;
@@ -49,7 +49,7 @@
         // First row
         &:nth-child(-n + #{$i}) {
           @if $media {
-            @extend %#{dash(grid first row $media)};
+            @extend %#{dash('grid' 'first' 'row' $media)};
           }
           @else {
             @extend %grid-first-row;
@@ -60,7 +60,7 @@
         &:nth-child(#{$i}n),
         &:last-child {
           @if $media {
-            @extend %#{dash(grid last column $media)};
+            @extend %#{dash('grid' 'last' 'column' $media)};
           }
           @else {
             @extend %grid-last-column;
