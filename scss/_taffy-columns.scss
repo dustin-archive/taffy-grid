@@ -21,11 +21,9 @@
       max-width: if($taffy-product-grid == true, $column-width, null);
       flex: 1 1 $column-width;
     }
-
     %#{dash(offset $name 'left' $i $media)} {
       margin-left: $offset-margin;
     }
-
     %#{dash(offset $name 'right' $i $media)} {
       margin-right: $offset-margin;
     }
