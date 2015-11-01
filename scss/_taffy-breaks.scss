@@ -1,0 +1,20 @@
+$taffy-breaks: (); // Set global scope
+
+@mixin break($break-name) {
+  @media (min-width: em(map-get($taffy-breaks, $break-name))) {
+    @content;
+  }
+}
+
+@mixin taffy-breaks($name, $gutter-width, $gutter-height, $amount) {
+  @for $i from 1 through $amount {
+    $break-name: dash($name $i);
+    $break: ($break-name: ($taffy-page-max / $amount) * $i);
+    $taffy-breaks: map-merge($taffy-breaks, $break) !global; // Update global scope
+
+    @include break($break-name) {
+      @include taffy-grids($name, $gutter-width, $gutter-height, $amount, $i);
+      @include taffy-columns($name, $gutter-width, $gutter-height, $amount, $i);
+    }
+  }
+}
