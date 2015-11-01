@@ -4,13 +4,15 @@
       @extend %#{dash($type $item)};
     }
     @else if type-of($item) == 'string' {
-      $split: str-split($item, '-');
+      $split: str-split($item, ':');
       @extend %#{dash($type nth($split, 1) nth($split, 2))};
+    }
+    @else {
+      @error "Taffy: $list: #{$list} is not a valid argument for '#{$type}'";
     }
   }
 }
 
-// Adapters
 @mixin column($list) {
   @include taffy-adapter('column', $list);
 }
