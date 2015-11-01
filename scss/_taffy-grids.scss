@@ -22,7 +22,8 @@
     %#{dash('grid' $i $media)} {
       > [class^='column'] {
 
-        // Nth-child // Is it needed to output nth-child when there's only 1 column?
+        // Nth-child
+        // Is it needed to output nth-child when there's only 1 column?
         &:nth-child(n) {
           @extend %#{dash('grid' 'all' $media)};
         }

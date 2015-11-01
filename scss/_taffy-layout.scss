@@ -9,7 +9,8 @@ body {
 }
 
 .center {
-  // width: 100%; // Should I use flex or margin auto for centering?
+  // Should I use flex or margin auto for centering?
+  // width: 100%;
   // margin: auto;
   max-width: em($taffy-page-max);
   flex: 1;
