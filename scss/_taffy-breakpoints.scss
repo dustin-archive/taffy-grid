@@ -1,4 +1,4 @@
-$breakpoints: (); // set scope globally
+$breakpoints: (); // Set scope globally
 
 @mixin taffy-breakpoints($name: null, $amount: $taffy-amount) {
 
@@ -6,7 +6,7 @@ $breakpoints: (); // set scope globally
   @for $i from 1 through $amount {
     $media-gap: $taffy-page-max / $amount;
     $breakpoint: (dash($name $i): em($media-gap * $i));
-    $breakpoints: map-merge($breakpoints, $breakpoint) !global; // update global scope
+    $breakpoints: map-merge($breakpoints, $breakpoint) !global; // Update global scope
   }
 }
 
