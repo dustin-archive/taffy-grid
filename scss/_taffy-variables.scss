@@ -6,4 +6,5 @@ $taffy-gutter-height: 16 !default;
 $taffy-page-max: 1280 !default;
 $taffy-page-min: 320 !default;
 
-$taffy-product-grid: null !default; // should be configurable within generate-columns also
+// Should this be universal or should it also be configurable within the column generator?
+$taffy-product-grid: false !default;
