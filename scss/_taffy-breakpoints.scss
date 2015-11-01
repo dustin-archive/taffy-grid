@@ -1,8 +1,6 @@
 $breakpoints: (); // Set scope globally
 
 @mixin taffy-breakpoints($name: null, $amount: $taffy-amount) {
-
-  // Breakpoints
   @for $i from 1 through $amount {
     $media-gap: $taffy-page-max / $amount;
     $breakpoint: (dash($name $i): em($media-gap * $i));
@@ -10,11 +8,10 @@ $breakpoints: (); // Set scope globally
   }
 }
 
-// Breakpoint mixin
 @mixin breakpoint($breakpoint) {
   $media-width: map-get($breakpoints, $breakpoint);
 
-  @media(min-width: $media-width) {
+  @media (min-width: $media-width) {
     @content;
   }
 }
