@@ -13,8 +13,11 @@
     $offset-margin: calc(((100% - #{em($gutter-width-total)}) / #{$i}) + #{em($gutter-width)});
 
     %#{dash(column $name $i $media)} {
-      max-width: if($taffy-product-grid == true, $column-width, null);
       flex: 1 1 $column-width;
+
+      @if $taffy-product-grid {
+        max-width: $column-width;
+      }
     }
     %#{dash(offset $name 'left' $i $media)} {
       margin-left: $offset-margin;

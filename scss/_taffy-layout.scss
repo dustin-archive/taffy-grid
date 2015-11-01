@@ -18,12 +18,8 @@ body {
 [class^='grid'] {
   display: flex;
   flex-wrap: wrap;
-  justify-content: if($taffy-product-grid == true, flex-start, space-between); // I'd rather not use the if() function here.
-}
 
-// Use a togglable placeholder for a product grid layout?
-// %product-grid {
-//   [class^='grid'] {
-//     justify-content: flex-start;
-//   }
-// }
+  @if $taffy-product-grid {
+    justify-content: flex-start;
+  }
+}
