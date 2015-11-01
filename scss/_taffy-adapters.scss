@@ -1,26 +1,26 @@
-@mixin taffy-adapters($type, $list, $name) {
-  @each $item in $list {
-    @if type-of($item) == 'number' {
-      @extend %#{dash($type $name $item)};
+@mixin taffy-adapters($type, $breaks, $name) {
+  @each $break in $breaks {
+    @if type-of($break) == 'number' {
+      @extend %#{dash($type $name $break)};
     }
-    @else if type-of($item) == 'string' {
-      $split: str-split($item, ':');
+    @else if type-of($break) == 'string' {
+      $split: str-split($break, ':');
       @extend %#{dash($type $name nth($split, 1) nth($split, 2))};
     }
     @else {
-      @error "Taffy: $list: #{$list} is not a valid argument for '#{$type}'";
+      @error "Taffy: $list: #{$breaks} is not a valid argument for '#{$type}'";
     }
   }
 }
 
-@mixin column($list, $name: null) {
-  @include taffy-adapters('column', $list, $name);
+@mixin column($breaks, $name: null) {
+  @include taffy-adapters('column', $breaks, $name);
 }
 
-@mixin grid($list, $name: null) {
-  @include taffy-adapters('grid', $list, $name);
+@mixin grid($breaks, $name: null) {
+  @include taffy-adapters('grid', $breaks, $name);
 }
 
-@mixin offset($list, $name: null) {
-  @include taffy-adapters('offset', $list, $name);
+@mixin offset($breaks, $name: null) {
+  @include taffy-adapters('offset', $breaks, $name);
 }
