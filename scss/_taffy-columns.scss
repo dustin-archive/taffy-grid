@@ -1,12 +1,4 @@
-@mixin taffy-columns(
-  $name: null,
-  $gutter-width: $taffy-gutter-width,
-  $gutter-height: $taffy-gutter-height,
-  $amount: $taffy-amount,
-  $media: null
-  ) {
-
-  // Columns
+@mixin taffy-columns($name, $gutter-width, $gutter-height, $amount, $media: null) {
   @for $i from 2 through $amount {
     $column-width: '(100% - #{em($gutter-width * ($i - 1))}) / #{$i}';
     $offset-margin: '(#{$column-width} + #{em($gutter-width)}';
@@ -18,9 +10,11 @@
         max-width: calc(#{$column-width});
       }
     }
+
     %#{dash(offset $name 'left' $i $media)} {
       margin-left: calc(#{$offset-margin});
     }
+
     %#{dash(offset $name 'right' $i $media)} {
       margin-right: calc(#{$offset-margin});
     }
@@ -30,9 +24,11 @@
   %#{dash(column $name 1 $media)} {
     flex: 1 1 100%;
   }
+
   %#{dash(offset $name 'left' 1 $media)} {
     margin-left: 100%;
   }
+
   %#{dash(offset $name 'right' 1 $media)} {
     margin-right: 100%;
   }
@@ -41,9 +37,11 @@
   %#{dash(column $name 0 $media)} {
     flex: 1 1 0;
   }
+
   %#{dash(offset $name 'left' 0 $media)} {
     margin-left: 0;
   }
+
   %#{dash(offset $name 'right' 0 $media)} {
     margin-right: 0;
   }

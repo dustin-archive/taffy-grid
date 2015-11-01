@@ -1,10 +1,4 @@
-@mixin taffy-breakpoints(
-  $name: null,
-  $gutter-width: $taffy-gutter-width,
-  $gutter-height: $taffy-gutter-height,
-  $amount: $taffy-amount
-  ) {
-
+@mixin taffy-breakpoints($name, $gutter-width, $gutter-height, $amount) {
   @for $i from 1 through $amount {
     @media (min-width: em(($taffy-page-max / $amount) * $i)) {
       @include taffy-grids($gutter-width, $gutter-height, $amount, $i);

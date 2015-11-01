@@ -1,39 +1,29 @@
-@mixin taffy-grids(
-  $gutter-width: $taffy-gutter-width,
-  $gutter-height: $taffy-gutter-height,
-  $amount: $taffy-amount,
-  $media: null
-  ) {
-
-  // Grid placeholders
+@mixin taffy-grids($gutter-width, $gutter-height, $amount, $media: null) {
   %#{dash('grid' 'all' $media)} {
     margin-top: em($gutter-height);
     margin-right: em($gutter-width);
   }
+
   %#{dash('grid' 'first' 'row' $media)} {
     margin-top: 0;
   }
+
   %#{dash('grid' 'last' 'column' $media)} {
     margin-right: 0;
   }
 
-  // Grids
   @for $i from 1 through $amount {
     %#{dash('grid' $i $media)} {
       > [class^='column'] {
-
-        // Nth-child
         // Is it needed to output nth-child when there's only 1 column?
         &:nth-child(n) {
           @extend %#{dash('grid' 'all' $media)};
         }
 
-        // First row
         &:nth-child(-n + #{$i}) {
           @extend %#{dash('grid' 'first' 'row' $media)};
         }
 
-        // Last column and last child
         &:nth-child(#{$i}n),
         &:last-child {
           @extend %#{dash('grid' 'last' 'column' $media)};
