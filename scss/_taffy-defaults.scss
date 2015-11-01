@@ -4,9 +4,7 @@
 
 @for $i from 1 through $taffy-amount {
   @include breakpoint($i) {
-    $media: 'media-' + $i;
-
-    @include taffy-grids($media: $media);
-    @include taffy-columns($media: $media);
+    @include taffy-grids($media: $i);
+    @include taffy-columns($media: $i);
   }
 }
