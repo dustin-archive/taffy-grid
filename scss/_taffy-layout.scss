@@ -2,18 +2,9 @@ body {
   min-width: px($taffy-page-min);
 }
 
-.wrapper {
-  display: flex;
-  // padding: em($taffy-gutter-width); // Margins on gutters instead?
-  justify-content: center;
-}
-
 .center {
-  // Should I use flex or margin auto for centering?
-  // width: 100%;
-  // margin: auto;
+  margin: auto;
   max-width: em($taffy-page-max);
-  flex: 1;
 }
 
 [class^='grid'] {
