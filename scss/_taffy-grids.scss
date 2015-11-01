@@ -1,31 +1,31 @@
-@mixin taffy-grids($gutter-width, $gutter-height, $amount, $media: null) {
-  %#{dash('grid' 'all' $media)} {
+@mixin taffy-grids($name, $gutter-width, $gutter-height, $amount, $media: null) {
+  %#{dash('grid' $name 'all' $media)} {
     margin-top: em($gutter-height);
     margin-right: em($gutter-width);
   }
 
-  %#{dash('grid' 'first' 'row' $media)} {
+  %#{dash('grid' $name 'first' 'row' $media)} {
     margin-top: 0;
   }
 
-  %#{dash('grid' 'last' 'column' $media)} {
+  %#{dash('grid' $name 'last' 'column' $media)} {
     margin-right: 0;
   }
 
   @for $i from 1 through $amount {
-    %#{dash('grid' $media $i)} {
+    %#{dash('grid' $name $media $i)} {
       > [class^='column'] {
         &:nth-child(n) {
-          @extend %#{dash('grid' 'all' $media)};
+          @extend %#{dash('grid' $name 'all' $media)};
         }
 
         &:nth-child(-n + #{$i}) {
-          @extend %#{dash('grid' 'first' 'row' $media)};
+          @extend %#{dash('grid' $name 'first' 'row' $media)};
         }
 
         &:nth-child(#{$i}n),
         &:last-child {
-          @extend %#{dash('grid' 'last' 'column' $media)};
+          @extend %#{dash('grid' $name 'last' 'column' $media)};
         }
       }
     }
