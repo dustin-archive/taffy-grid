@@ -4,11 +4,8 @@
       @extend %#{dash($type $item)};
     }
     @else if type-of($item) == 'string' {
-      $dash-position: str-index($item, '-');
-      $column: str-slice($item, 1, $dash-position - 1);
-      $media: str-slice($item, $dash-position + 1);
-
-      @extend %#{dash($type $column $media)};
+      $split: str-split($item, '-');
+      @extend %#{dash($type nth($split, 1) nth($split, 2))};
     }
   }
 }
