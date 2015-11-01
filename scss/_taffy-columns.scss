@@ -8,22 +8,21 @@
 
   // Columns
   @for $i from 2 through $amount {
-    $gutter-width-total: $gutter-width * ($i - 1);
-    $column-width: calc((100% - #{em($gutter-width-total)}) / #{$i});
-    $offset-margin: calc(((100% - #{em($gutter-width-total)}) / #{$i}) + #{em($gutter-width)});
+    $column-width: '(100% - #{em($gutter-width * ($i - 1))}) / #{$i}';
+    $offset-margin: '(#{$column-width} + #{em($gutter-width)}';
 
     %#{dash(column $name $i $media)} {
-      flex: 1 1 $column-width;
+      flex: 1 1 calc(#{$column-width});
 
       @if $taffy-product-grid {
-        max-width: $column-width;
+        max-width: calc(#{$column-width});
       }
     }
     %#{dash(offset $name 'left' $i $media)} {
-      margin-left: $offset-margin;
+      margin-left: calc(#{$offset-margin});
     }
     %#{dash(offset $name 'right' $i $media)} {
-      margin-right: $offset-margin;
+      margin-right: calc(#{$offset-margin});
     }
   }
 
