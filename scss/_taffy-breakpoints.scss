@@ -1,17 +1,14 @@
-$breakpoints: (); // Set scope globally
+@mixin taffy-breakpoints(
+  $name: null,
+  $gutter-width: $taffy-gutter-width,
+  $gutter-height: $taffy-gutter-height,
+  $amount: $taffy-amount
+  ) {
 
-@mixin taffy-breakpoints($name: null, $amount: $taffy-amount) {
   @for $i from 1 through $amount {
-    $media-gap: $taffy-page-max / $amount;
-    $breakpoint: (dash($name $i): em($media-gap * $i));
-    $breakpoints: map-merge($breakpoints, $breakpoint) !global; // Update global scope
-  }
-}
-
-@mixin breakpoint($breakpoint) {
-  $media-width: map-get($breakpoints, $breakpoint);
-
-  @media (min-width: $media-width) {
-    @content;
+    @media (min-width: em(($taffy-page-max / $amount) * $i)) {
+      @include taffy-grids($gutter-width, $gutter-height, $amount, $i);
+      @include taffy-columns($name, $gutter-width, $gutter-height, $amount, $i);
+    }
   }
 }
