@@ -2,13 +2,12 @@
 @import '../../mint-sass/scss/main';
 
 @import 'taffy-variables';
+@import 'taffy-layout';
 
-@import 'taffy-breakpoints';
 @import 'taffy-grids';
 @import 'taffy-columns';
-
-@import 'taffy-defaults';
+@import 'taffy-breakpoints';
+@import 'taffy-generator';
 @import 'taffy-adapters';
-@import 'taffy-layout';
 
 // @import 'test/main';
