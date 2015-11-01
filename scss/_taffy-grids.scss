@@ -13,7 +13,7 @@
   }
 
   @for $i from 1 through $amount {
-    %#{dash('grid' $i $media)} {
+    %#{dash('grid' $media $i)} {
       > [class^='column'] {
         // Is it needed to output nth-child when there's only 1 column?
         &:nth-child(n) {

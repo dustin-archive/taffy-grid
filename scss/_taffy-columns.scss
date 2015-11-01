@@ -3,7 +3,7 @@
     $column-width: '(100% - #{em($gutter-width * ($i - 1))}) / #{$i}';
     $offset-margin: '(#{$column-width} + #{em($gutter-width)}';
 
-    %#{dash(column $name $i $media)} {
+    %#{dash(column $name $media $i)} {
       flex: 1 1 calc(#{$column-width});
 
       @if $taffy-product-grid {
@@ -11,38 +11,38 @@
       }
     }
 
-    %#{dash(offset $name 'left' $i $media)} {
+    %#{dash(offset $name 'left' $media $i)} {
       margin-left: calc(#{$offset-margin});
     }
 
-    %#{dash(offset $name 'right' $i $media)} {
+    %#{dash(offset $name 'right' $media $i)} {
       margin-right: calc(#{$offset-margin});
     }
   }
 
   // Largest column and offset
-  %#{dash(column $name 1 $media)} {
+  %#{dash(column $name $media 1)} {
     flex: 1 1 100%;
   }
 
-  %#{dash(offset $name 'left' 1 $media)} {
+  %#{dash(offset $name 'left' $media 1)} {
     margin-left: 100%;
   }
 
-  %#{dash(offset $name 'right' 1 $media)} {
+  %#{dash(offset $name 'right' $media 1)} {
     margin-right: 100%;
   }
 
   // Zero column and offset
-  %#{dash(column $name 0 $media)} {
+  %#{dash(column $name $media 0)} {
     flex: 1 1 0;
   }
 
-  %#{dash(offset $name 'left' 0 $media)} {
+  %#{dash(offset $name 'left' $media 0)} {
     margin-left: 0;
   }
 
-  %#{dash(offset $name 'right' 0 $media)} {
+  %#{dash(offset $name 'right' $media 0)} {
     margin-right: 0;
   }
 }
