@@ -12,7 +12,6 @@ $taffy-breaks: (); // Set global scope
     $taffy-breaks: map-merge($taffy-breaks, $break) !global; // Update global scope
 
     @include break($i, $name) {
-      @include taffy-grids($name, $gutter, $amount, $i);
       @include taffy-columns($name, $gutter, $amount, $i);
     }
   }
