@@ -6,14 +6,14 @@ $taffy-breaks: (); // Set global scope
   }
 }
 
-@mixin taffy-breaks($name, $gutter-width, $gutter-height, $amount) {
+@mixin taffy-breaks($name, $gutter, $amount) {
   @for $i from 1 through $amount {
     $break: (dash($i $name): ($taffy-page-max / $amount) * $i);
     $taffy-breaks: map-merge($taffy-breaks, $break) !global; // Update global scope
 
     @include break($i, $name) {
-      @include taffy-grids($name, $gutter-width, $gutter-height, $amount, $i);
-      @include taffy-columns($name, $gutter-width, $gutter-height, $amount, $i);
+      @include taffy-grids($name, $gutter, $amount, $i);
+      @include taffy-columns($name, $gutter, $amount, $i);
     }
   }
 }

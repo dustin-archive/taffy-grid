@@ -1,7 +1,7 @@
-@mixin taffy-columns($name, $gutter-width, $gutter-height, $amount, $break: null) {
+@mixin taffy-columns($name, $gutter, $amount, $break: null) {
   @for $i from 2 through $amount {
-    $column: '(100% - #{em($gutter-width * ($i - 1))}) / #{$i}';
-    $offset: '#{$column} + #{em($gutter-width)}';
+    $column: '(100% - #{em($gutter * ($i - 1))}) / #{$i}';
+    $offset: '#{$column} + #{em($gutter)}';
 
     %#{dash(column $name $break $i)} {
       flex: 1 1 calc(#{$column});

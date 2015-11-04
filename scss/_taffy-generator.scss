@@ -1,7 +1,7 @@
-@mixin taffy-generator($name: null, $gutter-width: 32, $gutter-height: 16, $amount: 12) {
-  @include taffy-grids($name, $gutter-width, $gutter-height, $amount);
-  @include taffy-columns($name, $gutter-width, $gutter-height, $amount);
-  @include taffy-breaks($name, $gutter-width, $gutter-height, $amount);
+@mixin taffy-generator($name: null, $gutter: 16, $amount: 12) {
+  @include taffy-grids($name, $gutter, $amount);
+  @include taffy-columns($name, $gutter, $amount);
+  @include taffy-breaks($name, $gutter, $amount);
 }
 
 @include taffy-generator;

@@ -1,7 +1,7 @@
-@mixin taffy-grids($name, $gutter-width, $gutter-height, $amount, $break: null) {
+@mixin taffy-grids($name, $gutter, $amount, $break: null) {
   %#{dash('grid' $name 'all' $break)} {
-    margin-top: em($gutter-height);
-    margin-right: em($gutter-width);
+    margin-top: em($gutter);
+    margin-right: em($gutter);
   }
 
   %#{dash('grid' $name 'first' 'row' $break)} {
