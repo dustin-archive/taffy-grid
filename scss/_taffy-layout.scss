@@ -10,8 +10,4 @@ body {
 [class^='grid'] {
   display: flex;
   flex-wrap: wrap;
-
-  @if $taffy-product-grid {
-    justify-content: flex-start;
-  }
 }
