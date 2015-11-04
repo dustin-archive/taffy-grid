@@ -1,33 +1,5 @@
-@mixin taffy-grids($name, $gutter, $amount, $break: null) {
-  %#{dash('grid' $name 'all' $break)} {
-    margin-top: em($gutter);
-    margin-right: em($gutter);
-  }
-
-  %#{dash('grid' $name 'first' 'row' $break)} {
-    margin-top: 0;
-  }
-
-  %#{dash('grid' $name 'last' 'column' $break)} {
-    margin-right: 0;
-  }
-
-  @for $i from 1 through $amount {
-    %#{dash('grid' $name $break $i)} {
-      > [class^='column'] {
-        &:nth-child(n) {
-          @extend %#{dash('grid' $name 'all' $break)};
-        }
-
-        &:nth-child(-n + #{$i}) {
-          @extend %#{dash('grid' $name 'first' 'row' $break)};
-        }
-
-        &:nth-child(#{$i}n),
-        &:last-child {
-          @extend %#{dash('grid' $name 'last' 'column' $break)};
-        }
-      }
-    }
+@mixin taffy-grids($name, $gutter) {
+  [class^='#{dash(grid $name)}'] > [class^='#{dash(column $name)}'] {
+    margin: em($gutter / 2);
   }
 }
