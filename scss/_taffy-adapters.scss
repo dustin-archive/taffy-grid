@@ -17,10 +17,6 @@
   @include taffy-adapters('column', $breaks, $name);
 }
 
-@mixin grid($breaks, $name: null) {
-  @include taffy-adapters('grid', $breaks, $name);
-}
-
 @mixin offset($breaks, $name: null) {
   @include taffy-adapters('offset', $breaks, $name);
 }
