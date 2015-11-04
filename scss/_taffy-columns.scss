@@ -1,22 +1,22 @@
 @mixin taffy-columns($name, $gutter-width, $gutter-height, $amount, $break: null) {
   @for $i from 2 through $amount {
-    $column-width: '(100% - #{em($gutter-width * ($i - 1))}) / #{$i}';
-    $offset-margin: '(#{$column-width} + #{em($gutter-width)}';
+    $column: '(100% - #{em($gutter-width * ($i - 1))}) / #{$i}';
+    $offset: '#{$column} + #{em($gutter-width)}';
 
     %#{dash(column $name $break $i)} {
-      flex: 1 1 calc(#{$column-width});
+      flex: 1 1 calc(#{$column});
 
       @if $taffy-product-grid {
-        max-width: calc(#{$column-width});
+        max-width: calc(#{$column});
       }
     }
 
     %#{dash(offset $name 'left' $break $i)} {
-      margin-left: calc(#{$offset-margin});
+      margin-left: calc(#{$offset});
     }
 
     %#{dash(offset $name 'right' $break $i)} {
-      margin-right: calc(#{$offset-margin});
+      margin-right: calc(#{$offset});
     }
   }
 
