@@ -1,5 +1,0 @@
-@mixin taffy-grids($name, $gutter) {
-  [class^='#{dash(grid $name)}'] > [class^='#{dash(column $name)}'] {
-    margin: em($gutter / 2);
-  }
-}

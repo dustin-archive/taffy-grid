@@ -1,23 +1,10 @@
-@mixin taffy-columns($name, $gutter, $amount, $break: null) {
+@mixin taffy-columns($name, $amount, $break: null) {
   @for $i from 0 through $amount {
-    $offset: '(100% / #{$i})';
-    $column: '#{$offset} - #{em($gutter)}';
-
     %#{dash(column $name $break $i)} {
-      flex: 1 1 calc(#{$column});
+      flex: 1 1 calc(100% / #{$i});
 
       @if $taffy-product-grid {
-        max-width: calc(#{$column});
-      }
-    }
-
-    @if $taffy-offsets {
-      %#{dash(offset $name 'left' $break $i)} {
-        margin-left: calc(#{$offset});
-      }
-
-      %#{dash(offset $name 'right' $break $i)} {
-        margin-right: calc(#{$offset});
+        max-width: calc(100% / #{$i});
       }
     }
   }

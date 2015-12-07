@@ -7,7 +7,7 @@ body {
   max-width: em($taffy-page-max);
 }
 
-[class^='grid'] {
+.grid {
   display: flex;
   flex-wrap: wrap;
 }
