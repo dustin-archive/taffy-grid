@@ -1,0 +1,11 @@
+@mixin taffy-offsets($name, $amount, $break: null) {
+  @for $i from 0 through $amount {
+    %#{dash(offset $name 'left' $break $i)} {
+      margin-left: calc(100% / #{$i});
+    }
+
+    %#{dash(offset $name 'right' $break $i)} {
+      margin-right: calc(100% / #{$i});
+    }
+  }
+}
