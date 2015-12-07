@@ -1,5 +1,5 @@
 @mixin taffy-generator($name: null, $amount: $taffy-amount) {
-  @include taffy-columns($name, $amount);
+  @include taffy-items($name, $amount);
   @include taffy-offsets($name, $amount);
   @include taffy-breaks($name, $amount);
 }

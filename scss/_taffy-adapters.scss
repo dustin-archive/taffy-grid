@@ -13,8 +13,8 @@
   }
 }
 
-@mixin column($breaks, $name: null) {
-  @include taffy-adapters('column', $breaks, $name);
+@mixin item($breaks, $name: null) {
+  @include taffy-adapters('item', $breaks, $name);
 }
 
 @mixin offset($breaks, $name: null) {
