@@ -3,70 +3,99 @@ Taffy Sass
 
 A sweet responsive grid.
 
+## Overview
+Taffy is a gutter-less flex based grid system that only outputs the CSS that you use. It uses a combination of flex and calc to ensure accuracy, rather than use hard coded percentages with floating points. Taffy also includes offsets and breakpoints.
+
 ## Mixins
 ```scss
-@include grid($breaks, [$name]);
-@include column($breaks, [$name]);
+@include item($breaks, [$name]);
 @include offset($breaks, [$name]);
-@include break($break, [$name]);
-```
-
-## Using taffy
-Taffy is set up to work right out of the box. By default Taffy uses 12 columns, a gutter width of 1em, and a gutter height of 2em.
-
-### Grid classes
-To start we'll create a grid class. Grids must start with `grid`. Any class that starts with `grid` is assumed to be a grid. Grids contain columns and determine when the columns will break to a new row.
-
-This grid will break the columns it contains to a new row every 2 columns.
-
-```scss
-.grid-foobar {
-  @include grid(2);
+@include break($break, [$name]) {
+  // ...
 }
 ```
 
-This grid will break the columns it contains to a new row every 2 columns, until it reaches the 6th break point. After the 6th break it will break to a new row every 4 columns.
+## Grids
+Grids contain items. All it does is initiate flex.
+
+```html
+<div class='grid'>
+  <!-- items -->
+</div>
+```
+
+## Items
+Items go inside grids. Items wrap to a new line when the limit has been reached.
+
+```html
+<div class='grid'>
+  <div class='item'></div>
+  <div class='item'></div>
+  <!-- break -->
+  <div class='item'></div>
+  <div class='item'></div>
+</div>
+```
+
+To make an item, use the `item` mixin. This item allows two per line before it wraps to the next line. Items are automatically extended so you don't need to worry about bloated output.
 
 ```scss
-.grid-foobar {
-  @include grid(2 '6:4');
+.item {
+  @include item(2);
 }
 ```
 
-### Column and offset classes
-Columns must start with `column`. Any class that starts with `column` is assumed to be a column. Columns are contained within grids and will break to a new row according to the grid they are contained inside.
-
-This column will span half of the grid.
+This item is the same as the previous example, but adds media queries. Each item will allow two items per line until the browser width exceeds the sixth break. After the sixth break each item will allow four items per line before wrapping to the next line. Items are also extended within media queries so you don't need to worry about bloated output here either.
 
 ```scss
-.column-foobar {
-  @include column(2);
+.item {
+  @include item(2 '6:4');
 }
 ```
 
-This column will span half the grid, until the width of the browser reaches the 6th break point. After the 6th break it will span one fourth the grid.
+## Offsets
+Offsets work the same as items but use margins instead of flex. Offsets are classes attached to items and occupy the space normally occupied by items.
+
+```html
+<div class='grid'>
+  <div class='item.offset'></div>
+  <!-- break -->
+  <div class='item.offset'></div>
+</div>
+```
+
+You make an offset the same way you'd make an item but with the `offset-left` and `offset-right` mixins.
 
 ```scss
-.column-foobar {
-  @include column(2 '6:4');
+.offset {
+  @include offset-left(2 '6:4');
 }
 ```
 
-## Generating custom grids
-Generating grids is a big deal. I'd only recommend generating a custom grid when absolutely necessary. If done improperly you could end up with thousands of bloated Sass placeholders and you might even crash your compiler. Generating many custom grids or grids with more than 12 columns will increase your compile time dramatically. If you must generate a new grid, all you need to do is call the `taffy-generator` mixin with the following parameters.
+## Breaks
+Breaks use a similar syntax to items and offsets. Breaks create media queries for styles passed to them.
 
 ```scss
-@include taffy-generator($name, $gutter-width, $gutter-height, $amount);
+.break {
+  @include break(4) {
+    // styles
+  }
+}
 ```
 
-## Using custom grids
-Just pass a second parameter of your custom grid name to one of the mixins.
+## Custom grids
+If for some reason you want to use more or less than 12 items not globally, use the `taffy-generator` mixin.
 
 ```scss
-@include grid(6, 'custom-grid-name');
-@include column(6, 'custom-grid-name');
-@include offset(6, 'custom-grid-name');
-@include break(6, 'custom-grid-name') {
+@include taffy-generator($name, $amount);
+```
+
+To use a custom grid pass your custom grid name to the mixins as the a second argument.
+
+```scss
+@include item(6 '6:4', 'custom-name');
+@include offset(6 '6:4', 'custom-name');
+@include break(4, 'custom-name') {
   // ...
 }
 ```
