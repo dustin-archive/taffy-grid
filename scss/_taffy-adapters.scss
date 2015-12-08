@@ -8,7 +8,7 @@
       @extend %#{dash($type $name nth($split, 1) nth($split, 2))};
     }
     @else {
-      @error "Taffy: $list: #{$breaks} is not a valid argument for '#{$type}'";
+      @error "Taffy: $list: #{$breaks} is not a valid argument for '#{$type}' mixin.";
     }
   }
 }
