@@ -6,13 +6,13 @@ $taffy-breaks: (); // set global scope
   }
 }
 
-@mixin taffy-breaks($name, $amount) {
+@mixin taffy-breaks($name, $amount, $fixed) {
   @for $i from 1 through $amount {
     $break: (dash($i $name): ($taffy-page-max / $amount) * $i);
     $taffy-breaks: map-merge($taffy-breaks, $break) !global; // update global scope
 
     @include break($i, $name) {
-      @include taffy-items($name, $amount, $i);
+      @include taffy-items($name, $amount, $fixed, $i);
     }
   }
 }
