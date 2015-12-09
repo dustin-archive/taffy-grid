@@ -16,11 +16,3 @@
 @mixin item($breaks, $name: null) {
   @include taffy-adapters('item', $breaks, $name);
 }
-
-@mixin offset-left($breaks, $name: null) {
-  @include taffy-adapters('offset-left', $breaks, $name);
-}
-
-@mixin offset-right($breaks, $name: null) {
-  @include taffy-adapters('offset-right', $breaks, $name);
-}
