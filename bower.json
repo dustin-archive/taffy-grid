@@ -1,0 +1,21 @@
+{
+  "name": "taffy-sass",
+  "homepage": "https://github.com/dustindowell22/taffy-sass",
+  "authors": [
+    "Dustin Dowell <dustindowell22@gmail.com>"
+  ],
+  "description": "A sweet responsive grid.",
+  "main": "scss/main.scss",
+  "keywords": [
+    "taffy",
+    "grid",
+    "css",
+    "sass",
+    "scss"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+  ]
+}
