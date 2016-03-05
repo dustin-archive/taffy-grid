@@ -10,3 +10,7 @@
     }
   }
 }
+
+@include taffy-breaks($taffy-amount, $taffy-fixed) {
+  @include taffy-items($taffy-amount, $taffy-fixed);
+}

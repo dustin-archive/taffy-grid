@@ -12,7 +12,7 @@ $taffy-breaks: (); // set global scope
     $taffy-breaks: map-merge($taffy-breaks, $break) !global; // update global scope
 
     @include break($i) {
-      @include taffy-items($amount, $fixed, $i);
+      @content;
     }
   }
 }
