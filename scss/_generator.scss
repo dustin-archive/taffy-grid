@@ -1,6 +1,6 @@
-@mixin taffy-generator($name: null, $amount: $taffy-amount, $fixed: $taffy-fixed) {
-  @include taffy-items($name, $amount, $fixed);
-  @include taffy-breaks($name, $amount, $fixed);
+@mixin taffy-generator($amount: $taffy-amount, $fixed: $taffy-fixed) {
+  @include taffy-items($amount, $fixed);
+  @include taffy-breaks($amount, $fixed);
 }
 
 @include taffy-generator;

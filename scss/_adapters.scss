@@ -1,11 +1,11 @@
-@mixin taffy-adapters($type, $breaks, $name) {
+@mixin taffy-adapters($type, $breaks) {
   @each $break in $breaks {
     @if type-of($break) == 'number' {
-      @extend %#{dash($type $name $break)};
+      @extend %#{dash($type $break)};
     }
     @else if type-of($break) == 'string' {
       $split: str-split($break, ':');
-      @extend %#{dash($type $name nth($split, 1) nth($split, 2))};
+      @extend %#{dash($type nth($split, 1) nth($split, 2))};
     }
     @else {
       @error "taffy-sass: $list: #{$breaks} is not a valid argument for '#{$type}' mixin.";
@@ -13,6 +13,6 @@
   }
 }
 
-@mixin item($breaks, $name: null) {
-  @include taffy-adapters('item', $breaks, $name);
+@mixin item($breaks) {
+  @include taffy-adapters('item', $breaks);
 }

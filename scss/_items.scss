@@ -1,6 +1,6 @@
-@mixin taffy-items($name, $amount, $fixed, $break: null) {
+@mixin taffy-items($amount, $fixed, $break: null) {
   @for $i from 0 through $amount {
-    .grid > %#{dash(item $name $break $i)} {
+    .grid > %#{dash(item $break $i)} {
       @if $fixed {
         width: calc(100% / #{$i});
       }

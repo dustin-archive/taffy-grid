@@ -1,18 +1,18 @@
 $taffy-breaks: (); // set global scope
 
-@mixin break($break, $name: null) {
-  @media (min-width: em(map-get($taffy-breaks, dash($break $name)))) {
+@mixin break($break) {
+  @media (min-width: em(map-get($taffy-breaks, $break))) {
     @content;
   }
 }
 
-@mixin taffy-breaks($name, $amount, $fixed) {
+@mixin taffy-breaks($amount, $fixed) {
   @for $i from 1 through $amount {
-    $break: (dash($i $name): ($taffy-page-max / $amount) * $i);
+    $break: ($i: ($taffy-page-max / $amount) * $i);
     $taffy-breaks: map-merge($taffy-breaks, $break) !global; // update global scope
 
-    @include break($i, $name) {
-      @include taffy-items($name, $amount, $fixed, $i);
+    @include break($i) {
+      @include taffy-items($amount, $fixed, $i);
     }
   }
 }
