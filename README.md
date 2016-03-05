@@ -5,7 +5,7 @@ Taffy
 ...with grid based breakpoints.
 
 ## Overview
-Taffy is a grid system that only outputs the CSS you need and automatically extends classes when possible. By default Taffy uses flex and calc to ensure accuracy according to the browser, rather than use percentages with floating points. Taffy also includes grid based breakpoints and a fixed grid option (still responsive) that works well for product grid style layouts.
+Taffy is a grid system that only outputs the CSS you need and automatically extends classes when possible. Taffy uses flex and calc, rather than use percentages with floating points, to ensure accuracy. Taffy includes grid based breakpoints and a fixed grid option (still responsive) that works well for product grid style layouts.
 
 ## Grids
 Grids contain items. All this class does is initiate flex.
