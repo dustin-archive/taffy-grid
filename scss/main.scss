@@ -1,10 +1,10 @@
 @import '../bower_components/fizz-sass/scss/main';
 @import '../bower_components/mint-sass/scss/main';
 
-@import 'taffy-variables';
-@import 'taffy-layout';
+@import 'variables';
+@import 'layout';
 
-@import 'taffy-items';
-@import 'taffy-breaks';
-@import 'taffy-generator';
-@import 'taffy-adapters';
+@import 'items';
+@import 'breaks';
+@import 'generator';
+@import 'adapters';
