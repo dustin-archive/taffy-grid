@@ -1,9 +1,47 @@
-@import '../bower_components/fizz-sass/scss/main';
-@import '../bower_components/mint-sass/scss/main';
+//
+// + Variables
+// =============================================================================
 
-@import 'variables';
-@import 'layout';
+$grid-fixed: null !default;
 
-@import 'breaks';
-@import 'items';
-@import 'adapters';
+//
+// + Styles
+// =============================================================================
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: em($break-max);
+  margin: auto;
+}
+
+//
+// + Items
+// =============================================================================
+
+@mixin taffy-items($amount, $fixed, $break: null) {
+  @for $i from 0 through $amount {
+    .grid > %#{dash(item $break $i)} {
+      @if $fixed {
+        width: calc(100% / #{$i});
+      }
+      @else {
+        flex: 1 1 calc(100% / #{$i});
+      }
+    }
+  }
+}
+
+@include taffy-items($break-amount, $grid-fixed);
+
+@include break-include {
+  @include taffy-items($break-amount, $grid-fixed, $break-include);
+}
+
+//
+// + Item
+// =============================================================================
+
+@mixin item($breaks) {
+  @include break-adapter('item', $breaks);
+}
