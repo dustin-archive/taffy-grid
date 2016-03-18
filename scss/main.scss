@@ -19,7 +19,7 @@ $grid-fixed: null !default;
 // + Items
 // =============================================================================
 
-@mixin taffy-items($amount, $fixed, $break: null) {
+@mixin grid-items($amount, $fixed, $break: null) {
   @for $i from 0 through $amount {
     .grid > %#{dash(item $break $i)} {
       @if $fixed {
@@ -32,10 +32,10 @@ $grid-fixed: null !default;
   }
 }
 
-@include taffy-items($break-amount, $grid-fixed);
+@include grid-items($break-amount, $grid-fixed);
 
 @include break-include {
-  @include taffy-items($break-amount, $grid-fixed, $break-include);
+  @include grid-items($break-amount, $grid-fixed, $break-include);
 }
 
 //
