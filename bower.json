@@ -1,10 +1,10 @@
 {
-  "name": "taffy-sass",
+  "name": "taffy-grid",
   "homepage": "https://github.com/dustindowell22/taffy-sass",
   "authors": [
     "Dustin Dowell <dustindowell22@gmail.com>"
   ],
-  "description": "A sweet responsive grid.",
+  "description": "Sweet responsive grids",
   "main": "scss/main.scss",
   "keywords": [
     "taffy",
