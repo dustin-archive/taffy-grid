@@ -7,7 +7,7 @@ Grid
 + Only outputs only the CSS you use
 + Uses a combination of flex and calc to ensure accuracy
 + Keeps output small by extending classes, even within media queries
-+ Uses Taffy's Break, a breakpoint system centered around the idea of syncing column widths and breakpoints
++ Uses Taffy's Break, a breakpoint system created for syncing grids and breakpoints
 + Includes a "fixed" grid option (still responsive) that works well for product grid style layouts
 
 ## Grids
