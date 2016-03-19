@@ -27,7 +27,21 @@ Grid
 + Automatically extended, even within media queries
 + Wraps to a new line after the item limit has been reached
 
-#### Use the `item` mixin to make an item
+#### Example
+
+```html
+<div class='grid'>
+  <div class='item'></div>
+  <div class='item'></div>
+  <!-- break -->
+  <div class='item'></div>
+  <div class='item'></div>
+</div>
+```
+
+#### Using items
++ The `item` mixin creates an item
++ Not dependent on class names
 
 This example item allows 2 items per line before wrapping to the next line.
 
@@ -37,7 +51,8 @@ This example item allows 2 items per line before wrapping to the next line.
 }
 ```
 
-#### Use shorthand for multiple breaks
+#### Using shorthand
++ Generates multiple breaks from a single line
 
 The first arguments says: this item allows 2 items per line before wrapping to the next line.
 
@@ -49,16 +64,4 @@ The third argument says: after the browser width exceeds the width of the 8th br
 .item {
   @include item(2 '6:4' '8:6');
 }
-```
-
-#### Example
-
-```html
-<div class='grid'>
-  <div class='item'></div>
-  <div class='item'></div>
-  <!-- break -->
-  <div class='item'></div>
-  <div class='item'></div>
-</div>
 ```
