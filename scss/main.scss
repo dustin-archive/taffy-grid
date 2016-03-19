@@ -5,7 +5,7 @@
 $grid-fixed: null !default;
 
 //
-// + Styles
+// + Grid
 // =============================================================================
 
 .grid {
@@ -16,13 +16,13 @@ $grid-fixed: null !default;
 }
 
 //
-// + Items
+// + Include
 // =============================================================================
 
-@mixin grid-items($amount, $fixed, $break: null) {
-  @for $i from 0 through $amount {
-    .grid > %#{dash(item $break $i)} {
-      @if $fixed {
+@include break-include {
+  @for $i from 1 through $break-amount {
+    .grid > %#{dash(item $break-include $i)} {
+      @if $grid-fixed {
         width: calc(100% / #{$i});
       }
       @else {
@@ -30,12 +30,6 @@ $grid-fixed: null !default;
       }
     }
   }
-}
-
-@include grid-items($break-amount, $grid-fixed);
-
-@include break-include {
-  @include grid-items($break-amount, $grid-fixed, $break-include);
 }
 
 //
