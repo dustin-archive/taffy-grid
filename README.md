@@ -48,6 +48,7 @@ This example item allows 2 items per line before wrapping to the next line.
 ```scss
 .item {
   @include item(2);
+  // ...
 }
 ```
 
@@ -63,5 +64,6 @@ The third argument says: after the browser width exceeds the width of the 8th br
 ```scss
 .item {
   @include item(2 '6:4' '8:6');
+  // ...
 }
 ```
