@@ -24,6 +24,7 @@ Grid
 
 ## Items
 + Flex items
++ Not dependent on class names
 + Automatically extended, even within media queries
 + Wraps to a new line after the item limit has been reached
 
@@ -41,7 +42,7 @@ Grid
 
 #### Using items
 + The `item` mixin creates an item
-+ Not dependent on class names
++ Column amount is controlled by the `$break-amount` variable
 
 This example item allows 2 items per line before wrapping to the next line.
 
@@ -66,4 +67,15 @@ The third argument says: after the browser width exceeds the width of the 8th br
   @include item(2 '6:4' '8:6');
   // ...
 }
+```
+
+#### Using the fixed grid
++ Replaces the `flex` property with `width`
+
+Before importing Taffy's Grid into your stylesheet set the `$grid-fixed` variable to `true`.
+
+```scss
+$grid-fixed: true;
+
+@import '../bower_components/taffy-grid/scss/main';
 ```
