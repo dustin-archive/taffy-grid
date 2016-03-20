@@ -70,7 +70,7 @@ The third argument says: after the browser width exceeds the width of the 8th br
 ```
 
 #### Using the fixed grid
-+ Replaces the `flex` property with `width`
++ Replaces the `flex` property in items with `width`
 
 Before importing Taffy's Grid into your stylesheet set the `$grid-fixed` variable to `true`.
 
