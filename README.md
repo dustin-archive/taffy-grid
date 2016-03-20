@@ -8,7 +8,7 @@ Grid
 + Uses a combination of flex and calc to ensure accuracy
 + Keeps output small by extending classes, even within media queries
 + Uses Taffy's Break, a breakpoint system created for syncing grids and breakpoints
-+ Includes a "fixed" grid option (still responsive) that works well for product grid style layouts
++ Includes a `$grid-fixed` variable to enable a responsive product grid style layout
 
 ## Grids
 + Initiate flex
