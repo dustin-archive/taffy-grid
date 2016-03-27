@@ -14,7 +14,7 @@ Grid
 + Initiate flex
 + Contain items
 
-#### Example
+#### Markup
 
 ```html
 <div class='grid'>
@@ -28,7 +28,7 @@ Grid
 + Automatically extended, even within media queries
 + Wraps to a new line after the item limit has been reached
 
-#### Example
+#### Markup
 
 ```html
 <div class='grid'>
