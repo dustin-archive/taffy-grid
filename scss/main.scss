@@ -21,7 +21,7 @@ $grid-fixed: null !default;
 
 @include break-include {
   @for $i from 1 through $break-amount {
-    .grid > %#{dash(item $break-include $i)} {
+    .grid > %#{merge(item $break-include $i, '-')} {
       @if $grid-fixed {
         width: calc(100% / #{$i});
       }
