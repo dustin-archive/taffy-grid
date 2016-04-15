@@ -10,6 +10,19 @@ Grid
 + Uses Taffy's Break, a breakpoint system created for syncing grids and breakpoints
 + Includes a `$grid-fixed` variable to enable a responsive product grid style layout
 
+## Getting Started
++ Install with Bower
++ Import the components
+
+```
+$ bower install --save taffy-grid
+```
+
+```scss
+@import '../../bower_components/taffy-break/scss/main';
+@import '../../bower_components/taffy-grid/scss/main';
+```
+
 ## Grids
 + Initiate flex
 + Contain items
