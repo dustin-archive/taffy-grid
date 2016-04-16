@@ -19,7 +19,7 @@
     "bower_components"
   ],
   "dependencies": {
-    "fizz-sass": "^1.0.0",
+    "fizz-sass": "^2.0.0",
     "taffy-break": "^1.0.0"
   }
 }
