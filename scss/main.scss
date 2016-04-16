@@ -11,7 +11,7 @@ $grid-fixed: null !default;
 .grid {
   display: flex;
   flex-wrap: wrap;
-  max-width: em($break-max);
+  max-width: $break-max;
   margin: auto;
 }
 
