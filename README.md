@@ -19,6 +19,7 @@ $ bower install --save taffy-grid
 ```
 
 ```scss
+@import '../../bower_components/fizz-sass/scss/main';
 @import '../../bower_components/taffy-break/scss/main';
 @import '../../bower_components/taffy-grid/scss/main';
 ```
