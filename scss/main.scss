@@ -19,9 +19,9 @@ $grid-fixed: null !default;
 // + Loop
 // =============================================================================
 
-@include adapt-loop($break-amount) {
+@include break-loop($break-amount) {
   @for $i from 1 through $break-amount {
-    .grid > %#{merge(item $adapt-loop $i, '-')} {
+    .grid > %#{merge(item $break-loop $i, '-')} {
       @if $grid-fixed {
         width: calc(100% / #{$i});
       }
