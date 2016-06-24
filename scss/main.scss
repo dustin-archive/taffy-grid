@@ -16,12 +16,12 @@ $grid-fixed: null !default;
 }
 
 //
-// + Include
+// + Loop
 // =============================================================================
 
-@include break-include {
+@include break-loop($break-amount) {
   @for $i from 1 through $break-amount {
-    .grid > %#{merge(item $break-include $i, '-')} {
+    .grid > %#{merge(item $adapt-loop $i, '-')} {
       @if $grid-fixed {
         width: calc(100% / #{$i});
       }
@@ -33,9 +33,9 @@ $grid-fixed: null !default;
 }
 
 //
-// + Adapter
+// + Adapt
 // =============================================================================
 
 @mixin item($breaks) {
-  @include break-adapter('item', $breaks);
+  @include adapt('item', $breaks);
 }
