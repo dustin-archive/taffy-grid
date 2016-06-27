@@ -21,6 +21,6 @@
   "dependencies": {
     "fizz-sass": "^2.0.0",
     "taffy-break": "^3.0.0",
-    "taffy-adapt": "^2.0.0"
+    "taffy-adapt": "^3.0.0"
   }
 }
