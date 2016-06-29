@@ -3,6 +3,7 @@
 // =============================================================================
 
 $grid-fixed: null !default;
+$grid-ie: null !default;
 
 //
 // + Grid
@@ -23,10 +24,21 @@ $grid-fixed: null !default;
   @for $i from 1 through $break-amount {
     .grid > %item-#{merge($_break-loop $i, '-')} {
       @if $grid-fixed {
-        width: calc(100% / #{$i});
+        @if $grid-ie10 {
+          width: calc((100% / #{$i}) - 0.01px);
+        }
+        @else {
+          width: calc(100% / #{$i});
+        }
       }
       @else {
-        flex: 1 1 calc(100% / #{$i});
+        @if $grid-ie {
+          flex: 1;
+          flex-basis: calc((100% / #{$i}) - 0.01px);
+        }
+        @else {
+          flex: 1 1 calc(100% / #{$i});
+        }
       }
     }
   }
