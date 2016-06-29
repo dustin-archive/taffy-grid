@@ -8,7 +8,8 @@ Grid
 + Uses a combination of flex and calc to ensure accuracy
 + Keeps output small by extending classes, even within media queries
 + Uses Taffy's Break, a breakpoint system created for syncing grids and breakpoints
-+ Includes a `$grid-fixed` variable to enable a responsive product grid style layout
++ Includes `$grid-fixed` variable to enable a responsive product grid layout
++ Includes `$grid-ie10` variable to enable work arounds for Internet Explorer 10
 
 ## Getting Started
 + Install with Bower
