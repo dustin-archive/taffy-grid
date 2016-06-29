@@ -3,7 +3,7 @@
 // =============================================================================
 
 $grid-fixed: null !default;
-$grid-ie: null !default;
+$grid-ie10: null !default;
 
 //
 // + Grid
@@ -32,7 +32,7 @@ $grid-ie: null !default;
         }
       }
       @else {
-        @if $grid-ie {
+        @if $grid-ie10 {
           flex: 1;
           flex-basis: calc((100% / #{$i}) - 0.01px);
         }
