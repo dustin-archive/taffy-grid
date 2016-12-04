@@ -1,0 +1,63 @@
+//
+// # Dependencies
+// =============================================================================
+
+@import '../node_modules/taffy-util/main';
+
+//
+// # Variables
+// =============================================================================
+
+$grid-fixed: null !default;
+$grid-ie10: null !default;
+
+//
+// # Grid
+// =============================================================================
+
+%grid {
+  display: flex;
+  flex-flow: wrap;
+  max-width: $break-max;
+  margin: auto;
+}
+
+//
+// # Loop
+// =============================================================================
+
+@mixin _grid-make($amount, $fixed, $ie10) {
+  @include break-loop($amount) {
+    @for $i from 1 through $amount {
+      %grid > %item-#{util-merge($_break-loop $i, '-')} {
+        @if $fixed {
+          @if $ie10 {
+            width: calc((100% / #{$i}) - 0.01px);
+          }
+          @else {
+            width: calc(100% / #{$i});
+          }
+        }
+        @else {
+          @if $ie10 {
+            flex: 1;
+            flex-basis: calc((100% / #{$i}) - 0.01px);
+          }
+          @else {
+            flex: 1 1 calc(100% / #{$i});
+          }
+        }
+      }
+    }
+  }
+}
+
+@include _grid-make($break-amount, $grid-fixed, $grid-ie10);
+
+//
+// # Adapt
+// =============================================================================
+
+@mixin item($breaks) {
+  @include adapt('item', $breaks);
+}

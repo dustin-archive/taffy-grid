@@ -1,0 +1,27 @@
+{
+  "name": "taffy-grid",
+  "version": "4.1.0",
+  "description": "Sweet responsive grids",
+  "main": "scss/main.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taffy-grid/grid.git"
+  },
+  "author": "Dustin Dowell <dustindowell22@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taffy-grid/grid/issues"
+  },
+  "homepage": "https://github.com/taffy-grid/grid#readme",
+  "keywords": [
+    "taffy",
+    "grid",
+    "css",
+    "sass",
+    "scss"
+  ],
+  "dependencies": {
+    "taffy-adapt": "",
+    "taffy-break": "^4.0.0"
+  }
+}
